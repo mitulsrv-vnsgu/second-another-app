@@ -1,7 +1,8 @@
+import 'controller/app_navigation_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:mitul_s_application25/core/app_export.dart';
 
-class AppNavigationScreen extends StatelessWidget {
+class AppNavigationScreen extends GetWidget<AppNavigationController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,7 +27,7 @@ class AppNavigationScreen extends StatelessWidget {
                                             top: 10,
                                             right: 20,
                                             bottom: 10),
-                                        child: Text("App Navigation",
+                                        child: Text("lbl_app_navigation".tr,
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.center,
                                             style: AppStyle.txtRobotoRegular20
@@ -37,8 +38,7 @@ class AppNavigationScreen extends StatelessWidget {
                                     alignment: Alignment.centerLeft,
                                     child: Padding(
                                         padding: getPadding(left: 20),
-                                        child: Text(
-                                            "Check your app's UI from the below demo screens of your app.",
+                                        child: Text("msg_check_your_app_s".tr,
                                             overflow: TextOverflow.ellipsis,
                                             textAlign: TextAlign.center,
                                             style: AppStyle.txtRobotoRegular16
@@ -63,7 +63,7 @@ class AppNavigationScreen extends StatelessWidget {
                                       children: [
                                         GestureDetector(
                                             onTap: () {
-                                              onTapSplashScreen(context);
+                                              onTapSplashScreen();
                                             },
                                             child: Container(
                                                 width: size.width,
@@ -85,7 +85,8 @@ class AppNavigationScreen extends StatelessWidget {
                                                                       bottom:
                                                                           10),
                                                               child: Text(
-                                                                  "Splash Screen",
+                                                                  "lbl_splash_screen"
+                                                                      .tr,
                                                                   overflow:
                                                                       TextOverflow
                                                                           .ellipsis,
@@ -110,7 +111,7 @@ class AppNavigationScreen extends StatelessWidget {
                                                     ]))),
                                         GestureDetector(
                                             onTap: () {
-                                              onTapJoinMedium(context);
+                                              onTapJoinMedium();
                                             },
                                             child: Container(
                                                 width: size.width,
@@ -132,7 +133,56 @@ class AppNavigationScreen extends StatelessWidget {
                                                                       bottom:
                                                                           10),
                                                               child: Text(
-                                                                  "Join Medium",
+                                                                  "lbl_join_medium"
+                                                                      .tr,
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
+                                                                  textAlign:
+                                                                      TextAlign
+                                                                          .center,
+                                                                  style: AppStyle
+                                                                      .txtRobotoRegular20
+                                                                      .copyWith(
+                                                                          height:
+                                                                              getVerticalSize(1.00))))),
+                                                      Container(
+                                                          height:
+                                                              getVerticalSize(
+                                                                  1.00),
+                                                          width: size.width,
+                                                          margin:
+                                                              getMargin(top: 5),
+                                                          decoration: BoxDecoration(
+                                                              color: ColorConstant
+                                                                  .bluegray400))
+                                                    ]))),
+                                        GestureDetector(
+                                            onTap: () {
+                                              onTapNewSavedItemContainer();
+                                            },
+                                            child: Container(
+                                                width: size.width,
+                                                decoration:
+                                                    AppDecoration.fillWhiteA700,
+                                                child: Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Align(
+                                                          alignment: Alignment
+                                                              .centerLeft,
+                                                          child: Padding(
+                                                              padding:
+                                                                  getPadding(
+                                                                      left: 20,
+                                                                      top: 10,
+                                                                      right: 20,
+                                                                      bottom:
+                                                                          10),
+                                                              child: Text(
+                                                                  "msg_new_saved_item"
+                                                                      .tr,
                                                                   overflow:
                                                                       TextOverflow
                                                                           .ellipsis,
@@ -159,11 +209,15 @@ class AppNavigationScreen extends StatelessWidget {
                     ]))));
   }
 
-  onTapSplashScreen(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.splashScreen);
+  onTapSplashScreen() {
+    Get.toNamed(AppRoutes.splashScreen);
   }
 
-  onTapJoinMedium(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.joinMediumScreen);
+  onTapJoinMedium() {
+    Get.toNamed(AppRoutes.joinMediumScreen);
+  }
+
+  onTapNewSavedItemContainer() {
+    Get.toNamed(AppRoutes.newSavedItemContainerScreen);
   }
 }

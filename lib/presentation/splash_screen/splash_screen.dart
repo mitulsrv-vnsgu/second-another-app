@@ -1,7 +1,8 @@
+import 'controller/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:mitul_s_application25/core/app_export.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends GetWidget<SplashController> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
